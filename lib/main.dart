@@ -5,7 +5,7 @@ import 'package:sqflite/sqflite.dart';
 
 void main()async{
   WidgetsFlutterBinding.ensureInitialized();
-  openDatabase(
+  await openDatabase(
     join(await getDatabasesPath(), 'data_entry.db'),
     onCreate: (Database db, int v) {
       return db.execute(
