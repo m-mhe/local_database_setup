@@ -13,15 +13,18 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _tECOne = TextEditingController();
   final TextEditingController _tECTwo = TextEditingController();
   List<DataEntity> _output = [];
-  Future<void> _fetchData() async{
+
+  Future<void> _fetchData() async {
     _output = await LocalDatabaseConnection.fetch();
     setState(() {});
   }
+
   @override
   initState() {
     _fetchData();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,20 +63,21 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: _output.length,
-                  itemBuilder: (context, i){
-                return ListTile(
-                  title: Text(_output[i].one),
-                  subtitle: Text(_output[i].two),
-                  trailing: Text(_output[i].dateTime.minute.toString()),
-                );
-              }),
+                  itemCount: _output.length,
+                  itemBuilder: (context, i) {
+                    return ListTile(
+                      title: Text(_output[i].one),
+                      subtitle: Text(_output[i].two),
+                      trailing: Text(_output[i].dateTime.minute.toString()),
+                    );
+                  }),
             )
           ],
         ),
       ),
     );
   }
+
   @override
   void dispose() {
     super.dispose();

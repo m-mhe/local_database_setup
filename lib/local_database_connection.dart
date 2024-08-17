@@ -17,7 +17,8 @@ class LocalDatabaseConnection {
     await db.insert('inputs', data.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
-  static Future<List<DataEntity>> fetch() async{
+
+  static Future<List<DataEntity>> fetch() async {
     List<DataEntity> dataList = [];
     final database = openDatabase(
       join(await getDatabasesPath(), 'data_entry.db'),
@@ -30,12 +31,13 @@ class LocalDatabaseConnection {
     );
     final db = await database;
     final List<Map> fetchDataList = await db.query('inputs');
-    for(final {
-    'one': one as String,
-    'two': two as String,
-    'dateTime': dateTime as String,
-    } in fetchDataList){
-      dataList.insert(0, DataEntity(one: one, two: two, dateTime: DateTime.parse(dateTime)));
+    for (final {
+          'one': one as String,
+          'two': two as String,
+          'dateTime': dateTime as String,
+        } in fetchDataList) {
+      dataList.insert(0,
+          DataEntity(one: one, two: two, dateTime: DateTime.parse(dateTime)));
     }
     return dataList;
   }

@@ -9,31 +9,27 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Local Database setup',
       theme: ThemeData(
-        appBarTheme: AppBarTheme(backgroundColor: Colors.green[600], foregroundColor: Colors.white),
-        inputDecorationTheme: InputDecorationTheme(
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(7)),
-            borderSide: BorderSide(color: Colors.green.shade600)
-          ),
-          fillColor: Colors.green[200],
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(7)),
-              borderSide: BorderSide(color: Colors.green.shade600)
-          ),
-          filled: true
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green[600],
-            foregroundColor: Colors.white,
-            fixedSize: const Size.fromWidth(double.maxFinite),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(7),
-            )
-          )
-        )
-      ),
-      home: HomeScreen(),
+          appBarTheme: AppBarTheme(
+              backgroundColor: Colors.green[600],
+              foregroundColor: Colors.white),
+          inputDecorationTheme: InputDecorationTheme(
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(Radius.circular(7)),
+                  borderSide: BorderSide(color: Colors.green.shade600)),
+              fillColor: Colors.green[200],
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: const BorderRadius.all(Radius.circular(7)),
+                  borderSide: BorderSide(color: Colors.green.shade600)),
+              filled: true),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green[600],
+                  foregroundColor: Colors.white,
+                  fixedSize: const Size.fromWidth(double.maxFinite),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(7),
+                  )))),
+      home: const HomeScreen(),
     );
   }
 }
