@@ -6,12 +6,6 @@ class LocalDatabaseConnection {
   static Future<void> insert(DataEntity data) async {
     final database = openDatabase(
       join(await getDatabasesPath(), 'data_entry.db'),
-      onCreate: (Database db, int v) {
-        return db.execute(
-          'CREATE TABLE inputs(one TEXT, two TEXT, dateTime Text)',
-        );
-      },
-      version: 1,
     );
     final db = await database;
     await db.insert('inputs', data.toMap(),
@@ -22,12 +16,6 @@ class LocalDatabaseConnection {
     List<DataEntity> dataList = [];
     final database = openDatabase(
       join(await getDatabasesPath(), 'data_entry.db'),
-      onCreate: (Database db, int v) {
-        return db.execute(
-          'CREATE TABLE inputs(one TEXT, two TEXT, dateTime Text)',
-        );
-      },
-      version: 1,
     );
     final db = await database;
     final List<Map> fetchDataList = await db.query('inputs');
